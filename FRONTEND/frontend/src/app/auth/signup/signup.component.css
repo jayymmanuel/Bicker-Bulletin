@@ -1,0 +1,15 @@
+ form {
+
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+mat-form-field {
+    margin: 8px;
+    width: 500px;
+}
+
+.mat-button-base {
+    margin: auto;
+} 

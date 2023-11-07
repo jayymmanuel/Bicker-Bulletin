@@ -1,0 +1,30 @@
+<div id="error-banner" class="fixed bottom-0 inset-x-0 z-[60]" *ngIf="isBannerVisible">
+  <!-- Component Container -->
+  <div class="p-4 bg-[#5f9ea0] border border-gray-200 shadow-sm">
+      <div class="flex justify-center">
+                <span class="mb-4 inline-flex justify-center items-center w-[62px] h-[62px] rounded-full bg-yellow-200 text-yellow-500">
+                  <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                  </svg>
+                </span>
+        
+      </div>
+      <!-- Error Content -->
+      <div class="max-w-sm w-full mx-auto">
+        <!-- Title -->
+        <h2 class="font-semibold text-white flex justify-center">
+          Error has occured
+        </h2>
+        <!-- End Title -->
+        <!-- Error Message -->
+        <p class="mt-2 text-sm text-white flex justify-center w-full">
+          {{ data.message }}
+        </p>
+        <!-- End Error Message -->
+  
+      </div>
+      <!-- End Error Content -->
+    </div>
+    <!-- End Component Container -->
+  </div> 
+

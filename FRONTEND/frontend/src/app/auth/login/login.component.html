@@ -1,0 +1,94 @@
+<mat-card>
+
+    <form>
+      <!-- Login Page Content -->
+<div class="relative overflow-hidden">
+    <div class="mx-auto max-w-screen-md py-12 px-4 sm:px-6 md:max-w-screen-xl md:py-20 lg:py-32 md:px-8">
+      <div class="md:pr-8 md:w-1/2 xl:pr-0 xl:w-5/12">
+        <!-- Logo -->
+        <div class="mb-10 flex justify-center">
+         <img src="assets/images/bicker-black.png" class="w-48 h-14" alt="Bicker Logo"/>         
+        </div>
+  <!-- End Logo -->
+
+        <!-- Page Title -->
+        <h1 class="text-3xl text-gray-800 font-bold md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight">
+          Solving problems for every <span class="text-[#5f9ea0]">department</span>
+        </h1>
+        <!-- End Page Title -->
+
+        <!-- Page Sub-Heading -->
+        <p class="mt-3 text-base text-gray-500">
+          The first step to problem resolution is the courage to start a meaningful discussion.
+        </p>
+        <!-- End Sub-Heading -->
+  
+        <!-- Register Account Button -->
+        <div class="mt-8 grid">
+            <button type="button" class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm sm:p-4" 
+            [routerLink]="['/signup']">
+      Register an account
+    </button>
+    <!-- End Register Account Button -->
+    
+        </div>
+  
+        <!-- Or Divider -->
+        <div class="py-6 flex items-center text-gray-400 uppercase before:flex-[1_1_0%] before:border-t before:mr-6 after:flex-[1_1_0%] after:border-t after:ml-6">Or</div>
+        <!-- End Or Divider -->
+  
+<!-- Login Form -->
+<form (submit)="onlogin(loginform)" #loginform="ngForm" style="color: black;">
+  <!-- Email textbox -->
+  <div class="mb-8">
+    <label for="hs-hero-email-2" class="block text-sm font-medium"><span class="sr-only">Email address</span></label>
+    <input type="email" class="py-3 px-4 block w-full border border-gray-300 rounded-md text-sm focus-border-blue-500 focus-ring-500 sm-p-4"
+      placeholder="Email address" ngModel name="enterusername" required
+      pattern="^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" #enterusername="ngModel" />
+
+    <!--  Email input validation -->
+    <div *ngIf="enterusername.invalid && (enterusername.dirty || enterusername.touched)">
+      <div class="text-red-500 text-sm">Please enter a valid email address.</div>
+    </div>
+      <!-- End Email input validation -->
+
+  </div>
+  <!-- End Email textbox -->
+
+  <!-- Password textbox -->
+  <div class="mb-8">
+    <label for="hs-hero-password-2" class="block text-sm font-medium"><span class="sr-only">Password</span></label>
+    <div class="relative">
+      <input type="{{ showPassword ? 'text' : 'password' }}" class="py-3 px-4 block w-full border border-gray-300 rounded-md text-sm focus-border-blue-500 focus-ring-500 sm-p-4"
+        placeholder="password" ngModel name="enterpassword" required
+        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}" #enterpassword="ngModel">
+        <!-- Show Password -->
+      <button type="button" class="absolute text-sm right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600" (click)="showPassword = !showPassword">
+        {{ showPassword ? 'Hide' : 'Show' }} Password
+      </button>
+      <!-- End Show Password -->
+    </div>
+  </div>
+  <!-- End Password textbox -->  
+
+  <!-- Login Button -->
+  <div class="grid">
+    <button type="submit"
+      class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-[#5f9ea0] text-white hover:bg-[#367588] focus-outline-none focus-ring-2 focus-ring-blue-500 focus-ring-offset-2 transition-all text-sm sm-p-4">
+      Login
+    </button>
+  </div>
+  <!-- End Login Button -->
+</form>
+<!-- End Login Form -->
+
+      </div>
+    </div>
+  
+    <!-- Image Asset -->
+    <div class="hidden md:block md:absolute md:top-0 md:left-1/2 md:right-0 h-[750px] bg-[url('https://images.unsplash.com/photo-1555848962-6e79363ec58f?auto=format&fit=crop&q=80&w=2933&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-no-repeat bg-center bg-cover mt-10 mr-10 rounded-2xl"></div>
+    <!-- End Image Asset -->
+  </div>
+  <!-- End Login Page Content -->
+    </form>
+</mat-card>

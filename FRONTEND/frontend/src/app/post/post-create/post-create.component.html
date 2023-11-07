@@ -1,0 +1,71 @@
+<!-- NavBar Component -->
+<app-nav-component></app-nav-component>
+
+<!-- Create Post Page -->
+    <div *ngIf="isLoggedIn" > <!-- Only displaying content if User is logged in -->
+<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+  <div class="mx-auto max-w-2xl">
+    <!-- Page Title -->
+    <div class="text-center">
+      <h2 class="text-2xl text-gray-800 font-bold sm:text-3x">
+        Raise a complaint
+      </h2>
+    </div>
+<!-- End Page Title -->
+
+    <div class="mt-5 p-4 relative z-10 bg-white border rounded-xl sm:mt-10 md:p-10">
+      <!-- Create Complaint Post Form -->
+      <form form form (submit)="onAddPost(addPost)" #addPost="ngForm">
+        <!-- Text Icon -->
+        <div class="mb-4 sm:mb-8 flex justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" fill="currentColor" class="bi bi-chat-square-text" viewBox="0 0 16 16">
+            <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.5a1 1 0 0 0-.8.4l-1.9 2.533a1 1 0 0 1-1.6 0L5.3 12.4a1 1 0 0 0-.8-.4H2a2 2 0 0 1-2-2V2zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z" fill="#aec7cf"/>
+          </svg>
+        </div>
+        <!-- End Text Icon -->
+
+        <!-- Sub-Heading -->
+        <div class="mb-4 sm:mb-8 flex justify-center">
+          <h2 class="text-md text-gray-600 font-normal sm:text-3x">
+            Please provide any specific complaints you have, and we will promptly post them on our complaint forum for resolution.
+          </h2>
+        </div>
+<!-- End Sub-Heading -->
+
+<!-- Text-Area -->
+        <div>
+          <label for="hs-feedback-post-comment-textarea-1" class="block mb-2 text-sm font-medium dark:text-white">Comment</label>
+          <div class="mt-1">
+            <textarea id="hs-feedback-post-comment-textarea-1" name="postContent" rows="3" class="py-3 px-4 block w-full border border-gray-300 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4" placeholder="Details" maxlength="500" required ngModel pattern="^.{1,500}$" name="postContent" #enteredpostContent="ngModel"></textarea>
+            <div class="text-sm text-right text-gray-400">
+              <span [ngClass]="{'text-red-500': enteredpostContent.invalid}">{{ enteredpostContent.value?.length || 0 }} / 500</span>
+            </div>
+          </div>
+        </div>
+        <!-- End Text-Area -->
+
+        <!-- Submit Button -->
+        <div class="mt-6 grid">
+          <button type="submit" class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-[#5f9ea0] text-white hover:bg-[#367588] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all dark:focus:ring-offset-gray-800">Submit</button>
+        </div>
+        <!-- End Submit Button -->
+      </form>
+            <!-- End Create Complaint Post Form -->
+    </div>
+  </div>
+</div>
+</div>
+<!-- End Create Post Page -->
+
+<!-- Error Message -->
+<div *ngIf="!isLoggedIn" class="bg-slate-200 h-screen pt-10 pb-10 px-10 flex justify-center">
+  <div class="flex flex-col items-center"> 
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#dc143c" class="bi bi-slash-circle" viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+      <path d="M11.354 4.646a.5.5 0 0 0-.708 0l-6 6a.5.5 0 0 0 .708.708l6-6a.5.5 0 0 0 0-.708z"/>
+    </svg>      
+    
+    <h4 class="text-[#dc143c] px-10 text-xl font-semibold mt-6">[Error] : Please Log In or Sign Up to View Posts</h4>
+  </div>
+</div>
+<!-- End Error Message -->
